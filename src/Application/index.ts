@@ -1,10 +1,8 @@
-import { Checkout } from "./Domain/Checkout";
-import { IPricingRule } from "./Domain/Interfaces/PricingRule";
-import { GetDiscountForAProduct } from "./Domain/PricingRules/GetDiscountForAProduct";
-import { GetXforOneFreeDeal } from "./Domain/PricingRules/GetXforOneFreeDeal";
-import { Product } from "./Domain/Product";
+import { Checkout } from "../Domain/Checkout";
+import { Product } from "../Domain/Product";
+import { CustomerPricingRules } from "./CustomerPricingRules";
 
-const pricingRules = fetchPricingRules();
+const pricingRules = CustomerPricingRules.getPricingRules();
 
 const defaultCheckout = new Checkout(pricingRules, "SecondBite");
 defaultCheckout.addItem(new Product("Classic Ad", 269.99));
@@ -41,16 +39,3 @@ myerCheckout.addItem(new Product("Stand out Ad", 322.99));
 myerCheckout.addItem(new Product("Premium Ad", 394.99));
 console.log(myerCheckout.toString());
 console.log(`Total: ${myerCheckout.calculateTotal()}`);
-
-function fetchPricingRules() {
-  const pricingRules = new Map<string, IPricingRule[]>();
-  pricingRules.set("SecondBite", [new GetXforOneFreeDeal(3, "Classic Ad")]);
-  pricingRules.set("Axil Coffee Roasters", [
-    new GetDiscountForAProduct("Stand out Ad", 299.99)
-  ]);
-  pricingRules.set("MYER", [
-    new GetXforOneFreeDeal(5, "Stand out Ad"),
-    new GetDiscountForAProduct("Premium Ad", 389.99)
-  ]);
-  return pricingRules;
-}
