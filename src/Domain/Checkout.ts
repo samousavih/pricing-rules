@@ -29,7 +29,8 @@ export class Checkout {
   }
 
   public toString(): string {
-    return `Customer : ${this.customerName} 
-Items : ${this.products.map(p => p.productType).join(", ")} `;
+    return `Customer : ${this.customerName}\nItems : ${this.products
+      .map(p => p.productType)
+      .join(", ")} `;
   }
 }
