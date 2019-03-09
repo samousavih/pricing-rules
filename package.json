@@ -1,0 +1,23 @@
+{
+  "name": "pricing-rules",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/ts-node/dist/bin.js ./src/index.ts",
+    "test": "mocha -r ts-node/register src/**/*.spec.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ts-node": "^8.0.3",
+    "typescript": "^3.3.3333"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^11.11.0",
+    "chai": "^4.2.0",
+    "mocha": "^6.0.2"
+  }
+}
