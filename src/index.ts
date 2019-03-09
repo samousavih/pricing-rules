@@ -32,11 +32,25 @@ axilCoffeeRoastersCheckout.addItem(new Product("Premium Ad", 394.99));
 console.log(axilCoffeeRoastersCheckout.toString());
 console.log(`Total: ${axilCoffeeRoastersCheckout.calculateTotal()}`);
 
+const myerCheckout = new Checkout(pricingRules, "MYER");
+myerCheckout.addItem(new Product("Stand out Ad", 322.99));
+myerCheckout.addItem(new Product("Stand out Ad", 322.99));
+myerCheckout.addItem(new Product("Stand out Ad", 322.99));
+myerCheckout.addItem(new Product("Stand out Ad", 322.99));
+myerCheckout.addItem(new Product("Stand out Ad", 322.99));
+myerCheckout.addItem(new Product("Premium Ad", 394.99));
+console.log(myerCheckout.toString());
+console.log(`Total: ${myerCheckout.calculateTotal()}`);
+
 function fetchPricingRules() {
   const pricingRules = new Map<string, IPricingRule[]>();
   pricingRules.set("SecondBite", [new GetXforOneFreeDeal(3, "Classic Ad")]);
   pricingRules.set("Axil Coffee Roasters", [
     new GetDiscountForAProduct("Stand out Ad", 299.99)
+  ]);
+  pricingRules.set("MYER", [
+    new GetXforOneFreeDeal(5, "Stand out Ad"),
+    new GetDiscountForAProduct("Premium Ad", 389.99)
   ]);
   return pricingRules;
 }
