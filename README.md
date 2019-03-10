@@ -1,4 +1,4 @@
-# sample checkout card with flexible pricing rules
+# Sample checkout card with flexible pricing rules
 
 Calculates total price on a customer checkout based on pricing rules defined for the customer
 
