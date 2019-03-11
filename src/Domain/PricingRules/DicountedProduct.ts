@@ -1,13 +1,21 @@
 import { IProduct } from "../Interfaces/Product";
 
 export class DiscountedProduct implements IProduct {
-  public readonly originalProduct: IProduct;
-  public readonly price: number;
+  private _originalProduct: IProduct;
+  private _price: number;
   constructor(originalProduct: IProduct, price: number) {
-    this.originalProduct = originalProduct;
-    this.price = price;
+    this._originalProduct = originalProduct;
+    this._price = price;
   }
-  get productType() {
+  get productType(): string {
     return this.originalProduct.productType;
+  }
+
+  get originalProduct(): IProduct {
+    return this._originalProduct;
+  }
+
+  get price(): number {
+    return this._price;
   }
 }
