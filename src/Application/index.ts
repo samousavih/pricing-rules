@@ -2,6 +2,7 @@ import { Checkout } from "../Domain/Checkout";
 import { Product } from "../Domain/Product";
 import { CustomerPricingRules } from "./CustomerPricingRules";
 
+// These rules are fully flexible/dynamic they could be loaded through a repository e.g DB or another service or api
 const pricingRules = CustomerPricingRules.getPricingRules();
 
 const defaultCheckout = new Checkout(pricingRules, "SecondBite");
