@@ -65,14 +65,14 @@ describe("MoreThanXDiscount", () => {
     const products = [
       new Product("Some other ProductType", 10),
       new Product("ProductType", 10),
+      new Product("ProductType", 10),
       new Product("ProductType", 10)
-      //new Product("ProductType", 10)
     ];
     const result = pricingRule.apply(products);
-    expect(result.length).to.equal(3);
+    expect(result.length).to.equal(4);
     expect(result[0].price).to.equal(10);
     expect(result[1].price).to.equal(379.99);
     expect(result[2].price).to.equal(379.99);
-    //expect(result[3].price).equal(379.99);
+    expect(result[3].price).to.equal(379.99);
   });
 });
